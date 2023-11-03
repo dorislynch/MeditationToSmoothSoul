@@ -1,0 +1,6 @@
+framework module Pods_RNMeditationToSmoothSoul {
+  umbrella header "Pods-RNMeditationToSmoothSoul-umbrella.h"
+
+  export *
+  module * { export * }
+}
