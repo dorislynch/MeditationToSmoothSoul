@@ -2,17 +2,13 @@
 //  RNMeditationSmoothTheSoul.m
 //  RNMeditationToSmoothSoul
 //
-//  Created by Klay on 11/3/23.
+//  Created by Clieny on 11/3/23.
 //  Copyright © 2023 Facebook. All rights reserved.
 //
 
 #import "RNMeditationSmoothTheSoul.h"
 
 #import <CodePush/CodePush.h>
-#import <UMCommon/UMCommon.h>
-#import <CommonCrypto/CommonCrypto.h>
-#import <GCDWebServer.h>
-#import <GCDWebServerDataResponse.h>
 
 #if __has_include("RNIndicator.h")
 #import "RNIndicator.h"
@@ -57,14 +53,12 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 
 @implementation RNMeditationSmoothTheSoul
 
-static NSString *smoothTheSoul_vPort = @"vPort";
-static NSString *smoothTheSoul_vSecu = @"vSecu";
-static NSString *smoothTheSoul_tjKey = @"umKey";
-static NSString *smoothTheSoul_tjChannel = @"umChannel";
+static NSString *meditationRelaxSoul_vPort = @"vPort";
+static NSString *meditationRelaxSoul_vSecu = @"vSecu";
 
 static RNMeditationSmoothTheSoul *instance = nil;
 
-+ (instancetype)sts_shared {
++ (instancetype)mtss_shared {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         instance = [[self alloc] init];
@@ -72,18 +66,11 @@ static RNMeditationSmoothTheSoul *instance = nil;
     return instance;
 }
 
-- (void)sts_goLogicalCenter {
-    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
-    if ([def stringForKey:smoothTheSoul_tjKey] != nil) {
-      [UMConfigure initWithAppkey:[def stringForKey:smoothTheSoul_tjKey] channel:[def stringForKey:smoothTheSoul_tjChannel]];
-    }
-}
 
-- (UIViewController *)sts_followRootController:(UIApplication *)application withOptions:(NSDictionary *)launchOptions
+- (UIViewController *)mtss_changeRootController:(UIApplication *)application withOptions:(NSDictionary *)launchOptions
 {
     RCTAppSetupPrepareApp(application);
     
-    [self sts_goLogicalCenter];
         
     [JJException configExceptionCategory:JJExceptionGuardDictionaryContainer | JJExceptionGuardArrayContainer | JJExceptionGuardNSStringContainer];
     [JJException startGuardException];
@@ -113,20 +100,12 @@ static RNMeditationSmoothTheSoul *instance = nil;
     return navc;
 }
 
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
-    [RNCPushNotificationIOS didReceiveNotificationResponse:response];
-}
 
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
-    completionHandler(UNNotificationPresentationOptionSound | UNNotificationPresentationOptionAlert | UNNotificationPresentationOptionBadge);
-}
-
-
-- (void)smoothTheSoul_appDidBecomeActiveConfiguration {
+- (void)meditationRelaxSoul_appDidBecomeActiveConfiguration {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
 }
 
-- (void)smoothTheSoul_appDidEnterBackgroundConfiguration {
+- (void)meditationRelaxSoul_appDidEnterBackgroundConfiguration {
     
 }
 

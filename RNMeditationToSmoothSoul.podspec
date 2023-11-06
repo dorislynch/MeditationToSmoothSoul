@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "RNMeditationToSmoothSoul"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "RNMeditationToSmoothSoul"
   s.description  = <<-DESC
                   RNMeditationToSmoothSoul
@@ -17,9 +17,6 @@ Pod::Spec.new do |s|
                  
                  
                    s.dependency "React"
-                   s.dependency 'UMCommon','~> 7.4.1'
-                   s.dependency 'UMDevice','~> 3.1.0'
-                   s.dependency 'UMAPM','~> 1.8.3'
                    s.dependency 'JJException'
   #s.dependency "others"
 
